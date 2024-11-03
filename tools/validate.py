@@ -66,9 +66,10 @@ def transformReport(rapport,github_action_path,file_output):
 print("source : " +dir_path_exemple)
 print("glob : " +dir_path_exemple+'/**/*.dcm')
 print("output : " +     file_output)    
-print(glob.glob(dir_path_exemple+'/**/*.dcm', recursive=True))
+
+#Validation DICOM
 for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
-    locationRepport = validate(p,"Schematron Based CDA Validator",".Structuration minimale des documents de santé v1.16")
+    locationRepport = validate(p,"Dicom3tools","DICOM Standard Conformance")
     rapport = getRepport(locationRepport)
     transformReport(rapport,github_action_path,file_output)
