@@ -33,7 +33,7 @@ runs:
         run : |
               cd  ${{ inputs.repo}}
               python ${{ github.action_path }}/tools/validate.py './${{ inputs.repo_ig}}' './rapport.html'
-              echo "### Rapport de validation (validator_cli)  :rocket:" >> $GITHUB_STEP_SUMMARY
+              echo "### Rapport de validation   :rocket:" >> $GITHUB_STEP_SUMMARY
               cat ./rapport.html >> $GITHUB_STEP_SUMMARY
 
        
