@@ -58,10 +58,11 @@ def transformReport(rapport,file_output):
 
     transform = etree.XSLT(xsl)
     resultHtml= etree.tostring(transform(dom), pretty_print=True, encoding='utf-8')
-    with open("merged_file.html", "w") as f:
+    with open(file_output", "w") as f:
         f.write(str(resultHtml))
 
 for p in glob.iglob('dir_path_exemple'+'*/*.dcm'):
+    print p
     locationRepport = validate(p,"Schematron Based CDA Validator",".Structuration minimale des documents de santé v1.16")
     rapport = getRepport(locationRepport)
     transformReport(rapport,file_output)
