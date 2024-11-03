@@ -7,8 +7,9 @@ import fileinput
 import sys
 import glob  
 
-dir_path_exemple =  sys.argv[1] 
-github_action_path = sys.argv[2] 
+
+github_action_path = sys.argv[1] 
+dir_path_exemple =  sys.argv[2] 
 file_output = sys.argv[3] 
 
 
