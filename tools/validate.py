@@ -5,7 +5,8 @@ import base64
 import os,re,shutil
 import fileinput
 import sys
-import glob  
+import glob 
+import time
 
 
 github_action_path = sys.argv[1] 
@@ -69,9 +70,9 @@ print("output : " +     file_output)
 #Validation DICOM
 for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
-    start = timeit.timeit()
+    start_time = time.time()
     locationRepport = validate(p,"Dicom3tools","DICOM Standard Conformance")
     rapport = getRepport(locationRepport)
-    end = timeit.timeit()
+    end_time = time.time()
     print("-------Rapport  :" +  locationRepport)
-    transformReport(rapport,github_action_path,file_output,p,str(end))
+    transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
