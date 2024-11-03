@@ -51,7 +51,7 @@ def getRepport(locationRepport):
     rapport = requests.get(locationRepport +"?severityThreshold=WARNING" +"", headers=headers)
     return rapport
 
-def transformReport(rapport,github_action_path,file_output):
+def transformReport(rapport,github_action_path,file_output,nameFile,time):
     #Parsing svrl to html
     from lxml import etree
     parser = etree.ETCompatXMLParser()
@@ -59,7 +59,7 @@ def transformReport(rapport,github_action_path,file_output):
     dom = etree.fromstring(rapport.content,parser)
 
     transform = etree.XSLT(xsl)
-    resultHtml= etree.tostring(transform(dom), pretty_print=True)
+    resultHtml= etree.tostring(transform(dom,nameFile=etree.XSLT.strparam(nameFile),elapsedTime=etree.XSLT.strparam(time)), pretty_print=True)
     with open(file_output, "a") as f:
         f.write(str(resultHtml))
 
@@ -69,7 +69,9 @@ print("output : " +     file_output)
 #Validation DICOM
 for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
+    start = timeit.timeit()
     locationRepport = validate(p,"Dicom3tools","DICOM Standard Conformance")
     rapport = getRepport(locationRepport)
+    end = timeit.timeit()
     print("-------Rapport  :" +  locationRepport)
-    transformReport(rapport,github_action_path,file_output)
+    transformReport(rapport,github_action_path,file_output,p,str(end))
