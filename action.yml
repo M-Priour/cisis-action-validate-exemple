@@ -40,7 +40,7 @@ runs:
         run : |
               python ${{ github.action_path }}/tools/validate.py '${{ github.action_path }}' '${{ inputs.repo_ig}}' './rapport.html'
               echo "### Rapport de validation   :rocket:" >> $GITHUB_STEP_SUMMARY
-              cat ./rapport.html  | tr -d " \r" >> $GITHUB_STEP_SUMMARY
+              cat ./rapport.html  | tr -d "\r" >> $GITHUB_STEP_SUMMARY
 
        
 
