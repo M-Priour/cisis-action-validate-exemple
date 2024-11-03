@@ -64,7 +64,6 @@ def transformReport(rapport,github_action_path,file_output):
         f.write(str(resultHtml))
 
 print("source : " +dir_path_exemple)
-print("glob : " +dir_path_exemple+'/**/*.dcm')
 print("output : " +     file_output)    
 
 #Validation DICOM
@@ -72,4 +71,5 @@ for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
     locationRepport = validate(p,"Dicom3tools","DICOM Standard Conformance")
     rapport = getRepport(locationRepport)
+     print("-------Rapport  :" +  locationRepport)
     transformReport(rapport,github_action_path,file_output)
