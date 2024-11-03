@@ -23,7 +23,7 @@ runs:
 
       - name: Install glob
         shell: bash   
-        run : pip install glob
+        run : pip install glob2
 
 
   
