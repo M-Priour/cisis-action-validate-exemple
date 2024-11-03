@@ -47,9 +47,7 @@
       <th scope="col" style="width: 50%">résulat</th>
     </tr>
   </thead>
-  <tbody>
-		<xsl:apply-templates />
-  </tbody>
+  <tbody><xsl:apply-templates /> </tbody>
 </table>		
      </div>
     </div>
@@ -66,18 +64,13 @@
 	</td>
       <td class=".small">
 	  <xsl:value-of select="@subReportResult" />
-    <table class="table table-striped table-hover">
-     <xsl:apply-templates />
-     </table>
+    <table class="table table-striped table-hover"><xsl:apply-templates /></table>
     </td>
     </tr>
   </xsl:template>
-
     <xsl:template match="gvr:constraint">
     <tr>
-      <td>	  
-		  <xsl:value-of select="@severity" />
-	</td>
+      <td>	  <xsl:value-of select="@severity" /></td>
       <td class=".small"><small>
       <xsl:value-of select="gvr:constraintDescription" />
        <br/>
