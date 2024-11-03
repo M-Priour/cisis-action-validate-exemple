@@ -55,7 +55,7 @@ def transformReport(rapport,github_action_path,file_output):
     #Parsing svrl to html
     from lxml import etree
     parser = etree.ETCompatXMLParser()
-    xsl = etree.parse(github_action_path +'\\tools\svrl-to-html.xsl')
+    xsl = etree.parse(github_action_path +'/tools/svrl-to-html.xsl')
     dom = etree.fromstring(rapport.content,parser)
 
     transform = etree.XSLT(xsl)
