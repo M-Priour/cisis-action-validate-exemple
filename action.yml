@@ -21,12 +21,12 @@ runs:
         shell: bash   
         run : pip install lxml
 
-      - name: Run script plantuml      
+      - name: Run script validation      
         shell: bash   
         continue-on-error: true
         run : |
               cd  ${{ inputs.repo}}
-              python ${{ github.action_path }}/tools/validate.py './${{ inputs.repo_ig}}/output/package.db' './plantuml/graph.puml'
+              python ${{ github.action_path }}/tools/validate.py './${{ inputs.repo_ig}}' './plantuml/graph.puml'
               echo "### Rapport de validation (validator_cli)  :rocket:" >> $GITHUB_STEP_SUMMARY
               cat ./validator_cli/rapport.html >> $GITHUB_STEP_SUMMARY
 
