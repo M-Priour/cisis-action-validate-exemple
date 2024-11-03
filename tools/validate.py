@@ -59,8 +59,8 @@ def transformReport(rapport,github_action_path,file_output):
     dom = etree.fromstring(rapport.content,parser)
 
     transform = etree.XSLT(xsl)
-    resultHtml= etree.tostring(transform(dom), pretty_print=True, encoding='utf-8')
-    with open(file_output, "w") as f:
+    resultHtml= etree.tostring(transform(dom), pretty_print=True)
+    with open(file_output, "a") as f:
         f.write(str(resultHtml))
 
 print("source : " +dir_path_exemple)
