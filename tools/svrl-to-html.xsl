@@ -18,7 +18,8 @@
       <xsl:when test="@result='PASSED'">
         <button class="accordion-button collapsed" style="background-color:#438552;color:white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsexxxxx" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
         <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /> : <xsl:value-of select="@result" />
-        <br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
+        <br/>Fichier  : <xsl:value-of select="$nameFile" /> 
+	<br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
         <br/>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" />
         <br/>Temps d'execution :  <xsl:value-of select="$elapsedTime"/>
         <br/>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/>
@@ -27,7 +28,8 @@
        <xsl:otherwise>
         <button class="accordion-button collapsed" style="background-color:#894f55;color:white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsexxxxx" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
         <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /> : <xsl:value-of select="@result" />
-        <br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
+        <br/>Fichier  : <xsl:value-of select="$nameFile" /> 
+	<br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
         <br/>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" />
         <br/>Temps d'execution :  <xsl:value-of select="$elapsedTime"/>
         <br/>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/>
