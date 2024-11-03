@@ -31,9 +31,7 @@ runs:
         shell: bash   
         run : pip install glob2
         
-      - name: Install timeit
-        shell: bash   
-        run : pip install timeit
+
 
   
       - name: Run script validation      
