@@ -17,6 +17,10 @@ runs:
         shell: bash   
         run : pip install requests
 
+      - name: Install lxml
+        shell: bash   
+        run : pip install lxml
+
       - name: Run script plantuml      
         shell: bash   
         continue-on-error: true
