@@ -8,7 +8,8 @@ import sys
 import glob  
 
 dir_path_exemple =  sys.argv[1] 
-file_output = sys.argv[2] 
+github_action_path = sys.argv[2] 
+file_output = sys.argv[3] 
 
 
 url = 'https://interop.esante.gouv.fr/evs/rest/validations'
@@ -49,11 +50,11 @@ def getRepport(locationRepport):
     rapport = requests.get(locationRepport +"?severityThreshold=WARNING" +"", headers=headers)
     return rapport
 
-def transformReport(rapport,file_output):
+def transformReport(rapport,github_action_path,file_output):
     #Parsing svrl to html
     from lxml import etree
     parser = etree.ETCompatXMLParser()
-    xsl = etree.parse('svrl-to-html.xsl')
+    xsl = etree.parse(github_action_path+'\svrl-to-html.xsl')
     dom = etree.fromstring(rapport.content,parser)
 
     transform = etree.XSLT(xsl)
@@ -69,4 +70,4 @@ for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
     locationRepport = validate(p,"Schematron Based CDA Validator",".Structuration minimale des documents de santé v1.16")
     rapport = getRepport(locationRepport)
-    transformReport(rapport,file_output)
+    transformReport(rapport,github_action_path,file_output)
