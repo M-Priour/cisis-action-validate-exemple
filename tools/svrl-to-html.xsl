@@ -34,10 +34,6 @@
         <br/>Temps d'execution :  <xsl:value-of select="$elapsedTime"/>
         <br/>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/>
         </button>
-
-
-
-
       </xsl:otherwise>
     </xsl:choose>  
 
@@ -53,7 +49,6 @@
   </thead>
   <tbody>
 		<xsl:apply-templates />
-		
   </tbody>
 </table>		
      </div>
@@ -65,8 +60,6 @@
   </xsl:template>
 
   <xsl:template match="gvr:subReport">
-  
-
     <tr>
       <td>	  
 		   <xsl:value-of select="@name" />
@@ -77,15 +70,10 @@
      <xsl:apply-templates />
      </table>
     </td>
-     
     </tr>
-    
-
-
   </xsl:template>
 
     <xsl:template match="gvr:constraint">
-	
     <tr>
       <td>	  
 		  <xsl:value-of select="@severity" />
@@ -95,15 +83,8 @@
        <br/>
       <xsl:value-of select="gvr:locationInValidatedObject" />
       </small></td>
-
     </tr>
-	
-
-  
-
-       
     </xsl:template>
-
   <xsl:template match="*">
     <!-- drop these -->
   </xsl:template>
