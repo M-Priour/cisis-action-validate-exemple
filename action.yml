@@ -21,6 +21,12 @@ runs:
         shell: bash   
         run : pip install lxml
 
+      - name: Install glob
+        shell: bash   
+        run : pip install glob
+
+
+  
       - name: Run script validation      
         shell: bash   
         continue-on-error: true
