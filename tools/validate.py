@@ -63,6 +63,5 @@ def transformReport(rapport,file_output):
 
 for p in glob.iglob('dir_path_exemple'+'*/*.dcm'):
     locationRepport = validate(p,"Schematron Based CDA Validator",".Structuration minimale des documents de santé v1.16")
-
-rapport = getRepport(locationRepport)
-transformReport(rapport,file_output)
+    rapport = getRepport(locationRepport)
+    transformReport(rapport,file_output)
