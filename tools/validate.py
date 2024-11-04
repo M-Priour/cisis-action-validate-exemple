@@ -129,7 +129,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
                     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))                      
-             if 'MDM^T10^MDM_T02' in open(p, errors='ignore').read(): 
+            if 'MDM^T10^MDM_T02' in open(p, errors='ignore').read(): 
                 if '2.1^CISIS_CDA_HL7_V2' in open(p, errors='ignore').read():                
                     print("---file :" +  p)
                     start_time = time.time()
