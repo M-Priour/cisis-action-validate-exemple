@@ -100,7 +100,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*xml', recursive=True):
 
 #Validation HL7
 for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
-    if(os.path.isfile(p))
+    if(os.path.isfile(p)):
         if 'MSH|' in open(p).read():
             if 'ORU^R01^ORU_R01' in open(p).read():        
                 if '2.1^ CISIS_CDA_HL7_V2' in open(p).read():                
