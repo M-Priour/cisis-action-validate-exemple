@@ -22,7 +22,7 @@
 		<tr>
 			<td>Validateur</td>
 			<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
-		<tr>
+		</tr>
 		<tr>	
 			<td>Nombre d'erreurs</td>
 			<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
@@ -50,7 +50,7 @@
 		<tr>
 			<td>Validateur</td>
 			<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
-		<tr>
+		</tr>
 		<tr>	
 			<td>Nombre d'erreurs</td>
 			<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
