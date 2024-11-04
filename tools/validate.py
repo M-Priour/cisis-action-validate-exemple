@@ -133,7 +133,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 if '2.1^CISIS_CDA_HL7_V2' in open(p, errors='ignore').read():                
                     print("---file :" +  p)
                     start_time = time.time()
-                    locationRepport = validate(p,"Gazelle HL7v2.x validator","	"1.3.6.1.4.1.12559.11.36.8.3.21")
+                    locationRepport = validate(p,"Gazelle HL7v2.x validator",	"1.3.6.1.4.1.12559.11.36.8.3.21")
                     rapport = getRepport(locationRepport)
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
