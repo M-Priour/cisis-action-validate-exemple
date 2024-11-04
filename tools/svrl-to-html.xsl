@@ -39,7 +39,7 @@
 			<td>Nombre de règles</td>
 			<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
 		</tr>
-	<table>
+		</table>
 
       </xsl:when>
        <xsl:otherwise>
@@ -67,7 +67,7 @@
 			<td>Nombre de règles</td>
 			<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
 		</tr>
-	<table>
+		</table>
 
       </xsl:otherwise>
     </xsl:choose>  
