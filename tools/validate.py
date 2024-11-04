@@ -97,3 +97,25 @@ for p in glob.iglob(dir_path_exemple+'/**/*xml', recursive=True):
         end_time = time.time()
         print("-------Rapport  :" +  locationRepport)
         transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
+
+#Validation HL7
+for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
+    if 'MSH|' in open(p).read():
+        if 'ORU^R01^ORU_R01' in open(p).read():        
+            if '2.1^ CISIS_CDA_HL7_V2' in open(p).read():                
+                print("---file :" +  p)
+                start_time = time.time()
+                locationRepport = validate(p,"Gazelle HL7v2.x validator","1.3.6.1.4.1.12559.11.36.8.3.19")
+                rapport = getRepport(locationRepport)
+                end_time = time.time()
+                print("-------Rapport  :" +  locationRepport)
+                transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
+        if 'MDM^T02^MDM_T02' in open(p).read():        
+            if '2.1^ CISIS_CDA_HL7_V2' in open(p).read():                
+                print("---file :" +  p)
+                start_time = time.time()
+                locationRepport = validate(p,"Gazelle HL7v2.x validator","1.3.6.1.4.1.12559.11.36.8.3.24")
+                rapport = getRepport(locationRepport)
+                end_time = time.time()
+                print("-------Rapport  :" +  locationRepport)
+                transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))        
