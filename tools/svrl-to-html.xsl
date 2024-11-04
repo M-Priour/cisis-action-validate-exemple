@@ -57,10 +57,10 @@
 
 
 	  <h4>
-		   <xsl:value-of select="@name" />
+		   <xsl:value-of select="@name" /> :  <xsl:value-of select="@subReportResult" />
 
             </h4>
- <xsl:value-of select="@subReportResult" />
+
     <table class="table table-striped table-hover">
      <xsl:apply-templates />
      </table>
