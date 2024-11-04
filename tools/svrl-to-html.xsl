@@ -72,7 +72,7 @@
       </xsl:otherwise>
     </xsl:choose>  
 
-<h3> :arrow_forward:<xsl:value-of select="@name" /> :Validation </h3>  
+<h3>Validation </h3>  
 
    
 		<xsl:apply-templates />
