@@ -39,7 +39,7 @@ runs:
         continue-on-error: true
         run : |
               python ${{ github.action_path }}/tools/validate.py '${{ github.action_path }}' '${{ inputs.repo_ig}}' './rapport.html'
-              echo "### Rapport de validation   :rocket:" >> $GITHUB_STEP_SUMMARY
+              echo "# Rapport de validation   :rocket:" >> $GITHUB_STEP_SUMMARY
               cat ./rapport.html  | tr -d "\n\t" >> $GITHUB_STEP_SUMMARY
 
        
