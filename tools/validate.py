@@ -76,3 +76,13 @@ for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     end_time = time.time()
     print("-------Rapport  :" +  locationRepport)
     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
+
+#Validation METADATA
+for p in glob.iglob(dir_path_exemple+'/**/METADATA.XML', recursive=True):
+    print("---file :" +  p)
+    start_time = time.time()
+    locationRepport = validate(p,"Model-based XDS Validator","ASIP XDM ITI-32 FR Distribute Document Set on Media")
+    rapport = getRepport(locationRepport)
+    end_time = time.time()
+    print("-------Rapport  :" +  locationRepport)
+    transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
