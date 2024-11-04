@@ -88,15 +88,18 @@
   <xsl:template match="gvr:subReport">
   
 
-
-	  <h4>
+<details>
+	  <summary>  <h4>
 		 :small_red_triangle_down:   <xsl:value-of select="@subReportResult" />
 
             </h4>
+	</summary>		  
 
     <table class="table table-striped table-hover">
      <xsl:apply-templates />
      </table>
+
+</details>	  
 
  
 
