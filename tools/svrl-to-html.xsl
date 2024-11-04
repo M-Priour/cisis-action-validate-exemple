@@ -17,7 +17,7 @@
     <xsl:choose>
       <xsl:when test="@result='PASSED'">
   
-	<h2><xsl:value-of select="$nameFile" /> : <xsl:value-of select="@result" /></h2>       
+	<h2>:white_check_mark:<xsl:value-of select="$nameFile" /> : <xsl:value-of select="@result" /> </h2>       
         
 	<p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p> 
 	<p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
@@ -28,7 +28,7 @@
       </xsl:when>
        <xsl:otherwise>
 
-	<h2><xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /> </h2>             
+	<h2>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></h2>             
         <p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p>
 	 <p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
          <p>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" /></p>
@@ -57,7 +57,7 @@
 
 
 	  <h4>
-		   <xsl:value-of select="@name" /> :  <xsl:value-of select="@subReportResult" />
+		   :arrow_forward:<xsl:value-of select="@name" /> :  <xsl:value-of select="@subReportResult" />
 
             </h4>
 
