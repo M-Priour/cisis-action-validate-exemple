@@ -10,64 +10,39 @@
 
 
   <xsl:template match="gvr:validationReport ">
-
-  
   <div class="accordion-item">
-    <h2 class="accordion-header">
     <xsl:choose>
       <xsl:when test="@result='PASSED'">
-        <button class="accordion-button collapsed" style="background-color:#438552;color:white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsexxxxx" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /> : <xsl:value-of select="@result" />
-        <br/>Fichier  : <xsl:value-of select="$nameFile" /> 
-	<br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
-        <br/>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" />
-        <br/>Temps d'execution :  <xsl:value-of select="$elapsedTime"/>
-        <br/>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/>
-        </button>
+	<h2><xsl:value-of select="$nameFile" /> : <xsl:value-of select="@result" /></h2>       
+        
+	<p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p> 
+	<p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
+        <p>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" /></p>
+        <p>Temps d'execution :  <xsl:value-of select="$elapsedTime"/></p>
+        <p>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/></p>
       </xsl:when>
        <xsl:otherwise>
-        <button class="accordion-button collapsed" style="background-color:#894f55;color:white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsexxxxx" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /> : <xsl:value-of select="@result" />
-        <br/>Fichier  : <xsl:value-of select="$nameFile" /> 
-	<br/>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" />
-        <br/>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" />
-        <br/>Temps d'execution :  <xsl:value-of select="$elapsedTime"/>
-        <br/>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/>
-        </button>
+	<h2><xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /> </h2>             
+        <p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p>
+	 <p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
+         <p>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" /></p>
+         <p>Temps d'execution :  <xsl:value-of select="$elapsedTime"/></p>
+         <p>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/></p>
       </xsl:otherwise>
     </xsl:choose>  
-
-    </h2>
-    <div id="panelsStayOpen-collapsexxxxx" class="accordion-collapse collapse ">
-      <div class="accordion-body">
-   <table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Validation</th>
-      <th scope="col" style="width: 50%">résulat</th>
-    </tr>
-  </thead>
-  <tbody><xsl:apply-templates /> </tbody>
-</table>		
-     </div>
-    </div>
-  </div>
-
-
-
+	<h3>Validation </h3>       	  	  
+	<xsl:apply-templates /> 
   </xsl:template>
 
   <xsl:template match="gvr:subReport">
-    <tr>
-      <td>	  
-		   <xsl:value-of select="@name" />
-	</td>
-      <td class=".small">
+    <h4><xsl:value-of select="@name" /></h4>
 	  <xsl:value-of select="@subReportResult" />
-    <table class="table table-striped table-hover"><xsl:apply-templates /></table>
-    </td>
-    </tr>
+    	<table class="table table-striped table-hover">
+		<xsl:apply-templates />
+	</table>
   </xsl:template>
+
+	
     <xsl:template match="gvr:constraint">
     <tr>
       <td>	  <xsl:value-of select="@severity" /></td>
