@@ -90,7 +90,7 @@
 
 <details>
 	  <summary>  <h4>
-		 :small_red_triangle_down:   <xsl:value-of select="@subReportResult" />
+		Details   (<xsl:value-of select="@subReportResult" />) 
 
             </h4>
 	</summary>		  
