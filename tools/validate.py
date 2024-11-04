@@ -86,3 +86,14 @@ for p in glob.iglob(dir_path_exemple+'/**/METADATA.XML', recursive=True):
     end_time = time.time()
     print("-------Rapport  :" +  locationRepport)
     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
+
+#Validation CDA
+for p in glob.iglob(dir_path_exemple+'/**/*xml', recursive=True):
+    if '<ClinicalDocument' in open(p).read():
+        print("---file :" +  p)
+        start_time = time.time()
+        locationRepport = validate(p,"Schematron Based CDA Validator",".Structuration minimale des documents de santé v1.16")
+        rapport = getRepport(locationRepport)
+        end_time = time.time()
+        print("-------Rapport  :" +  locationRepport)
+        transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
