@@ -17,7 +17,7 @@ file_output = sys.argv[3]
 url = 'https://interop.esante.gouv.fr/evs/rest/validations'
 
 def validate(fileName,validationServiceName,validationserviceValidator):
-    time.sleep(3)
+    time.sleep(5)
     #Validation
     validation = ET.Element('validation')
     validation.set("xmlns", "http://evsobjects.gazelle.ihe.net/")
