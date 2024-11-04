@@ -18,28 +18,61 @@
       <xsl:when test="@result='PASSED'">
   
 	<h2>:white_check_mark:<xsl:value-of select="$nameFile" /> : <xsl:value-of select="@result" /> </h2>       
-        
-	<p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p> 
-	<p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
-        <p>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" /></p>
-        <p>Temps d'execution :  <xsl:value-of select="$elapsedTime"/></p>
-        <p>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/></p>
+        <table>
+		<tr>
+			<td>Validateur</td>
+			<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
+		<tr>
+		<tr>	
+			<td>Nombre d'erreurs</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
+		</tr>
+		<tr>	
+			<td>Nombre de warnings</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
+		</tr>
+		<tr>	
+			<td>Temps d'execution</td>
+			<td><xsl:value-of select="$elapsedTime"/></td>
+		</tr>			
+		<tr>	
+			<td>Nombre de règles</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
+		</tr>
+	<table>
 
       </xsl:when>
        <xsl:otherwise>
 
 	<h2>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></h2>             
-        <p>Validateur : <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></p>
-	 <p>Nombre d'erreurs : <xsl:value-of select="//gvr:counters/@numberOfErrors" /></p>
-         <p>Nombre de warnings :  <xsl:value-of select="//gvr:counters/@numberOfWarnings" /></p>
-         <p>Temps d'execution :  <xsl:value-of select="$elapsedTime"/></p>
-         <p>Nombre de règles:  <xsl:value-of select="//gvr:counters/@numberOfConstraints"/></p>
 
+        <table>
+		<tr>
+			<td>Validateur</td>
+			<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
+		<tr>
+		<tr>	
+			<td>Nombre d'erreurs</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
+		</tr>
+		<tr>	
+			<td>Nombre de warnings</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
+		</tr>
+		<tr>	
+			<td>Temps d'execution</td>
+			<td><xsl:value-of select="$elapsedTime"/></td>
+		</tr>			
+		<tr>	
+			<td>Nombre de règles</td>
+			<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
+		</tr>
+	<table>
 
       </xsl:otherwise>
     </xsl:choose>  
 
-<h3>Validation </h3>  
+<h3> :arrow_forward:<xsl:value-of select="@name" /> :Validation </h3>  
 
    
 		<xsl:apply-templates />
@@ -57,7 +90,7 @@
 
 
 	  <h4>
-		   :arrow_forward:<xsl:value-of select="@name" /> :  <xsl:value-of select="@subReportResult" />
+		 :small_red_triangle_down:   <xsl:value-of select="@subReportResult" />
 
             </h4>
 
