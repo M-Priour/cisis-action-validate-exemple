@@ -67,6 +67,10 @@ def transformReport(rapport,github_action_path,file_output,nameFile,time):
 print("source : " +dir_path_exemple)
 print("output : " +     file_output)    
 
+
+
+
+
 #Validation DICOM
 for p in glob.iglob(dir_path_exemple+'/**/*.dcm', recursive=True):
     print("---file :" +  p)
