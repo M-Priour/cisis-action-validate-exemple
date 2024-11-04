@@ -138,7 +138,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
                     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))          
-             if 'MDM^T02^MDM_T02' in open(p, errors='ignore').read():        
+            if 'MDM^T02^MDM_T02' in open(p, errors='ignore').read():        
                 if '1.1^CISIS_CDA_HL7_LPS' in open(p, errors='ignore').read():                
                     print("---file :" +  p)
                     start_time = time.time()
@@ -147,32 +147,30 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
                     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))     
-             if 'MDM^T10^MDM_T02' in open(p, errors='ignore').read():        
+            if 'MDM^T10^MDM_T02' in open(p, errors='ignore').read():        
                 if '1.1^CISIS_CDA_HL7_LPS' in open(p, errors='ignore').read():                
                     print("---file :" +  p)
                     start_time = time.time()
-                    locationRepport = validate(p,"Gazelle HL7v2.x validator","	"1.3.6.1.4.1.12559.11.36.8.3.23")
+                    locationRepport = validate(p,"Gazelle HL7v2.x validator","1.3.6.1.4.1.12559.11.36.8.3.23")
                     rapport = getRepport(locationRepport)
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
                     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))     
-             if 'MDM^T04^MDM_T02' in open(p, errors='ignore').read():        
+            if 'MDM^T04^MDM_T02' in open(p, errors='ignore').read():        
                 if '1.1^CISIS_CDA_HL7_LPS' in open(p, errors='ignore').read():                
                     print("---file :" +  p)
                     start_time = time.time()
-                    locationRepport = validate(p,"Gazelle HL7v2.x validator","	"1.3.6.1.4.1.12559.11.36.8.3.25")
+                    locationRepport = validate(p,"Gazelle HL7v2.x validator",	"1.3.6.1.4.1.12559.11.36.8.3.25")
                     rapport = getRepport(locationRepport)
                     end_time = time.time()
                     print("-------Rapport  :" +  locationRepport)
                     transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))   
-
-            
             if '2.11~IHE_FRANCE-2.11-PAM' in open(p, errors='ignore').read():  
-                    print("---file :" +  p)
-                    start_time = time.time()
-                    locationRepport = validate(p,"Gazelle HL7v2.x validator","2.16.840.1.113883.2.8.3.1.1")
-                    rapport = getRepport(locationRepport)
-                    end_time = time.time()
-                    print("-------Rapport  :" +  locationRepport)
-                    transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))                  
+                print("---file :" +  p)
+                start_time = time.time()
+                locationRepport = validate(p,"Gazelle HL7v2.x validator","2.16.840.1.113883.2.8.3.1.1")
+                rapport = getRepport(locationRepport)
+                end_time = time.time()
+                print("-------Rapport  :" +  locationRepport)
+                transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))                  
         
