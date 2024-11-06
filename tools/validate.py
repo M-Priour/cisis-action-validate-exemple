@@ -70,13 +70,13 @@ outputErreur = ""
 outputSansvalidateur = ""
 for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
     if(os.path.isfile(p)):
-        
+            
         strInputFile =  open(p, errors='ignore').read()
         validationService = ""
         validationValidator = ""
 
         # ************************ DICOM*********************************************        
-        if '.dcm' in p :
+        if '.dcm' in p.lower()  :
             validationService = "Dicom3tools"
             validationValidator = "DICOM Standard Conformance"
 
@@ -116,9 +116,12 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                     validationValidator = "2.16.840.1.113883.2.8.3.1.1"
         
         #Validation sur les API
+
+        
         if((validationValidator !="")  and (validationService != "")) :         
             timeValidation =""
             rapport =""
+            time.sleep(5)
             try:
                 start_time = time.time()
                 locationRepport = validate(p, validationService, validationValidator)
