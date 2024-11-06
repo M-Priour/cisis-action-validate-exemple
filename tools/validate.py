@@ -142,7 +142,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 outputErreur += "<tr><td>" + p  + "</td><td>Erreur à la transformation  du rapport </td></tr>"
         else :
             print("Fichier sans validateur  : " + p)  
-                outputSansvalidateur += "<tr><td>" + p  + "</td><td>Pas de validateur trouvé </td></tr>"
+            outputSansvalidateur += "<tr><td>" + p  + "</td><td>Pas de validateur trouvé </td></tr>"
         
             
  
