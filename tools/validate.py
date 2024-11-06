@@ -92,7 +92,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
 
         # ************************ CDA *********************************************        
         if '<ClinicalDocument' in strInputFile :
-            validationService = "schematron Based CDA Validator"
+            validationService = "Schematron Based CDA Validator"
             validationValidator = ".Structuration minimale des documents de santé v1.16"
 
         # ************************ HL7V2*********************************************
