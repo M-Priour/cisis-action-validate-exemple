@@ -114,18 +114,34 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                     validationValidator = "2.16.840.1.113883.2.8.3.1.1"
         
         #Validation sur les API
-        try:
-            if((validationValidator !="")  and (validationService != "")) : 
+        if((validationValidator !="")  and (validationService != "")) :         
+            timeValidation =""
+            rapport =""
+            try:
                 start_time = time.time()
                 locationRepport = validate(p, validationService, validationValidator)
-                rapport = getRepport(locationRepport)
                 end_time = time.time()
+                timeValidation = str(end_time - start_time)
+            except:
+                 print("Erreur à la validation  : " + p)    
+
+            try:
+                rapport = getRepport(locationRepport)
                 print("-------Rapport  :" +  locationRepport)
-                transformReport(rapport,github_action_path,file_output,p,str(end_time - start_time))
-            else :
-                print("Fichier sans validateur  : " + p)      
-        except:
-            print("Erreur sur le fichier : " + p)       
+            except:
+                print("Erreur à  la recuperation du rapport de  validation  : " + p)    
+                
+            try:
+                transformReport(rapport,github_action_path,file_output,p,timeValidation)
+            except:
+                print("Erreur à  la transformation   : " + p)           
+        else :
+            print("Fichier sans validateur  : " + p)          
+            
+ 
+
+
+
 
 
 
