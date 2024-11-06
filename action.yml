@@ -38,7 +38,7 @@ runs:
         shell: bash   
         continue-on-error: true
         run : |
-              python ${{ github.action_path }}/tools/validate.py '${{ github.action_path }}' '${{ inputs.repo_ig}}' './rapport.html'
+              python ${{ github.action_path }}/tools/validate.py '${{ github.action_path }}' '${{ inputs.repo}}' './rapport.html'
               echo "# Rapport de validation sur les exemples" >> $GITHUB_STEP_SUMMARY
               cat ./rapport.html  | tr -d "\n\t" >> $GITHUB_STEP_SUMMARY
 
