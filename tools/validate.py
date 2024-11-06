@@ -142,7 +142,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 
             try:
                 transformReport(rapport,github_action_path,file_output,p,timeValidation)
-            except Exception as e: :
+            except Exception as e: 
                 print("Erreur à  la transformation   : " + p)        
                 print(e)
                 outputErreur += "<tr><td>" + p  + "</td><td>Erreur à la transformation  du rapport </td></tr>"
