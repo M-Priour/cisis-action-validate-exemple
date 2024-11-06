@@ -41,6 +41,7 @@ def validate(fileName,validationServiceName,validationserviceValidator):
 
     headers = {'Content-Type': 'application/xml'}
     res =  requests.post(url, data=validate_data, headers=headers)
+    print(res)
     locationRapport = (res.headers["X-Validation-Report-Redirect"])
     return locationRapport
 
