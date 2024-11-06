@@ -126,7 +126,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 timeValidation = str(end_time - start_time)
             except:
                 print("Erreur à la validation  : " + p)    
-                outputErreur += "<tr><td>" + p  + "</td><td>"+ Erreur à la validation + "</td></tr>"
+                outputErreur += "<tr><td>" + p  + "</td><td> Erreur à la validation </td></tr>"
 
             try:
                 rapport = getRepport(locationRepport)
