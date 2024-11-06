@@ -61,6 +61,7 @@ def transformReport(rapport,github_action_path,file_output,nameFile,time):
     transform = etree.XSLT(xsl)
     resultHtml= transform(dom,nameFile=etree.XSLT.strparam(nameFile),elapsedTime=etree.XSLT.strparam(time))
     print(resultHtml,file=open(file_output, "a"))
+	<h2>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></h2>             
 
 
 print("source : " +dir_path_exemple)
@@ -124,19 +125,24 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 timeValidation = str(end_time - start_time)
             except:
                  print("Erreur à la validation  : " + p)    
+                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à la validation</h2>     ",file=open(file_output, "a"))
 
             try:
                 rapport = getRepport(locationRepport)
                 print("-------Rapport  :" +  locationRepport)
             except:
                 print("Erreur à  la recuperation du rapport de  validation  : " + p)    
+                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à  la recuperation du rapport de  validation</h2>     ",file=open(file_output, "a"))
                 
             try:
                 transformReport(rapport,github_action_path,file_output,p,timeValidation)
             except:
-                print("Erreur à  la transformation   : " + p)           
+                print("Erreur à  la transformation   : " + p)        
+                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à  la transformation</h2>     ",file=open(file_output, "a"))
         else :
-            print("Fichier sans validateur  : " + p)          
+            print("Fichier sans validateur  : " + p)  
+            print("	<h2>:heavy_exclamation_mark: "+ p +" : Pas de validateur </h2>     ",file=open(file_output, "a"))
+        
             
  
 
