@@ -124,7 +124,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 end_time = time.time()
                 timeValidation = str(end_time - start_time)
             except:
-                 print("Erreur à la validation  : " + p)    
+                print("Erreur à la validation  : " + p)    
                 print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à la validation</h2>     ",file=open(file_output, "a"))
 
             try:
