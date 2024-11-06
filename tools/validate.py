@@ -69,7 +69,7 @@ print("output : " +     file_output)
 for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
     if(os.path.isfile(p)):
         
-        strInputFile =  open(p, errors='ignore').read():
+        strInputFile =  open(p, errors='ignore').read()
         validationService = ""
         validationValidator = ""
 
