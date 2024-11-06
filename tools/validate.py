@@ -27,7 +27,7 @@ def validate(fileName,validationServiceName,validationserviceValidator):
 
     validationObject = ET.SubElement(validation, 'object')
     validationObject.set("xmlns", "http://evsobjects.gazelle.ihe.net/")
-    validationObject.set("originalFileName", "nomdufichier.txt")
+    validationObject.set("originalFileName", fileName)
 
     validationContent = ET.SubElement(validationObject, 'content')
 
