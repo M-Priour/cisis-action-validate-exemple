@@ -1,8 +1,8 @@
 name: "FHIR IG Action"
-description: "Worklow pour les IG de l'ANS"
+description: "Worklow de validation des exemples CI-SIS"
 inputs:
   repo:
-    description: "Chemin d'accés au repertoire de l'IG"
+    description: "Chemin d'accés au repertoire des exemples"
     required: true
 runs:
   using: "composite"
