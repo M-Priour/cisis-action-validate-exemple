@@ -61,7 +61,7 @@ def transformReport(rapport,github_action_path,file_output,nameFile,time):
     transform = etree.XSLT(xsl)
     resultHtml= transform(dom,nameFile=etree.XSLT.strparam(nameFile),elapsedTime=etree.XSLT.strparam(time))
     print(resultHtml,file=open(file_output, "a"))
-	<h2>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></h2>             
+     
 
 
 print("source : " +dir_path_exemple)
