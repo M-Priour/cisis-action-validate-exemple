@@ -127,21 +127,24 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 locationRepport = validate(p, validationService, validationValidator)
                 end_time = time.time()
                 timeValidation = str(end_time - start_time)
-            except:
-                print("Erreur à la validation  : " + p)    
+            except Exception as e: 
+                print("Erreur à la validation  : " + p)
+                print(e)
                 outputErreur += "<tr><td>" + p  + "</td><td> Erreur à la validation </td></tr>"
 
             try:
                 rapport = getRepport(locationRepport)
                 print("-------Rapport  :" +  locationRepport)
-            except:
+            except  Exception as e: 
                 print("Erreur à  la recuperation du rapport de  validation  : " + p)    
+                print(e)
                 outputErreur += "<tr><td>" + p  + "</td><td> Erreur à la récuperartion du rapport </td></tr>"
                 
             try:
                 transformReport(rapport,github_action_path,file_output,p,timeValidation)
-            except:
+            except Exception as e: :
                 print("Erreur à  la transformation   : " + p)        
+                print(e)
                 outputErreur += "<tr><td>" + p  + "</td><td>Erreur à la transformation  du rapport </td></tr>"
         else :
             print("Fichier sans validateur  : " + p)  
