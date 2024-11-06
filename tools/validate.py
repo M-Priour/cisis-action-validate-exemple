@@ -66,7 +66,8 @@ def transformReport(rapport,github_action_path,file_output,nameFile,time):
 
 print("source : " +dir_path_exemple)
 print("output : " +     file_output)    
-
+outputErreur = ""
+outputSansvalidateur = ""
 for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
     if(os.path.isfile(p)):
         
@@ -125,28 +126,31 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                 timeValidation = str(end_time - start_time)
             except:
                 print("Erreur à la validation  : " + p)    
-                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à la validation</h2>     ",file=open(file_output, "a"))
+                outputErreur += "<tr><td>" + p  + "</td><td>"+ Erreur à la validation + "</td></tr>"
 
             try:
                 rapport = getRepport(locationRepport)
                 print("-------Rapport  :" +  locationRepport)
             except:
                 print("Erreur à  la recuperation du rapport de  validation  : " + p)    
-                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à  la recuperation du rapport de  validation</h2>     ",file=open(file_output, "a"))
+                outputErreur += "<tr><td>" + p  + "</td><td>"+ Erreur à la récuperartion du rapport + "</td></tr>"
                 
             try:
                 transformReport(rapport,github_action_path,file_output,p,timeValidation)
             except:
                 print("Erreur à  la transformation   : " + p)        
-                print("	<h2>:heavy_exclamation_mark: "+ p +" : Erreur à  la transformation</h2>     ",file=open(file_output, "a"))
+                outputErreur += "<tr><td>" + p  + "</td><td>"+ Erreur à la transformation  du rapport + "</td></tr>"
         else :
             print("Fichier sans validateur  : " + p)  
-            print("	<h2>:heavy_exclamation_mark: "+ p +" : Pas de validateur </h2>     ",file=open(file_output, "a"))
+                outputSansvalidateur += "<tr><td>" + p  + "</td><td>"+ Pas de validateur trouvé + "</td></tr>"
         
             
  
+if(outputErreur != "") :
+    print("	<h2>:heavy_exclamation_mark: Fichier en erreur</h2><table>"  + outputErreur  + "</table>" ,file=open(file_output, "a"))    
 
-
+if(outputSansvalidateur != "") :
+    print("	<h2>:heavy_exclamation_mark: Fichier sans validateur</h2><table>"  + outputSansvalidateur  + "</table>" ,file=open(file_output, "a"))    
 
 
 
