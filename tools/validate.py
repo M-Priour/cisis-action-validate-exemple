@@ -40,6 +40,10 @@ def validate(fileName,validationServiceName,validationserviceValidator):
     validate_data = ET.tostring(validation)
 
     headers = {'Content-Type': 'application/xml'}
+    print("===============================================")
+    print(validate_data)
+    print("===============================================")
+    
     res =  requests.post(url, data=validate_data, headers=headers)
     print(res)
     locationRapport = (res.headers["X-Validation-Report-Redirect"])
