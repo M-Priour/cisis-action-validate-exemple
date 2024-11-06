@@ -41,7 +41,7 @@ def validate(fileName,validationServiceName,validationserviceValidator):
 
     headers = {'Content-Type': 'application/xml'}
     print("===============================================")
-    print(validate_data)
+    #print(validate_data)
     print("===============================================")
     
     res =  requests.post(url, data=validate_data, headers=headers)
