@@ -24,6 +24,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
                   <td>
                     <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-
                     <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" />
+                    <xsl:apply-templates />
                   </td>
                   <td>
                     <xsl:value-of select="//gvr:counters/@numberOfErrors" />
@@ -50,6 +51,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
                   <td>
                     <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-
                     <xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" />
+                    <xsl:apply-templates />
                   </td>
                   <td>
                     <xsl:value-of select="//gvr:counters/@numberOfErrors" />
@@ -67,13 +69,6 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
               </xsl:otherwise>
             </xsl:choose>  
 
-        <tr>
-          <td>Validation
-          </td>
-          <td colspan="6">
-            <xsl:apply-templates />
-          </td>  
-        </tr>  
 
   </xsl:template>
   
