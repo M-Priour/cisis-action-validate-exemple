@@ -158,7 +158,7 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
             print("Fichier sans validateur  : " + p)  
             outputSansvalidateur += "<tr><td>" + p  + "</td><td>Pas de validateur trouvé </td></tr>"
         
- print("</table>" ,file=open(file_output, "a"))    
+print("</table>" ,file=open(file_output, "a"))    
             
  
 if(outputErreur != "") :
