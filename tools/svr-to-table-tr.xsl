@@ -1,55 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cml="http://www.xml-cml.org/schema" xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-  xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gvr="http://validationreport.gazelle.ihe.net/" version="2.0">
+xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gvr="http://validationreport.gazelle.ihe.net/" version="2.0">
 <xsl:param name="elapsedTime" />
 <xsl:param name="title" />
 <xsl:param name="nameFile" />
-  <xsl:template match="/">
-    <xsl:apply-templates />
-  </xsl:template>
+<xsl:template match="/">
+	<xsl:apply-templates />
+</xsl:template>
 
 
-  <xsl:template match="gvr:validationReport ">
+<xsl:template match="gvr:validationReport ">
 
-
-
-    <tr>
-      <table>
-        <td>
-    <xsl:choose>
-      <xsl:when test="@result='PASSED'">
-        <tr>
-          <td><xsl:value-of select="$nameFile" /></td> 
-          <td>:white_check_mark:<xsl:value-of select="@result" /></td>
-  			  <td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
-          <td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
-  			  <td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
-  			  <td><xsl:value-of select="$elapsedTime"/></td>	
-  			  <td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
-		    </tr>
-      </xsl:when>
-      <xsl:otherwise>
-        <tr>
-          <td><xsl:value-of select="$nameFile" /></td> 
-          <td>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></td>
-  			  <td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
-          <td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
-  			  <td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
-  			  <td><xsl:value-of select="$elapsedTime"/></td>	
-  			  <td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
-		    </tr>
-      </xsl:otherwise>
-    </xsl:choose>  
-    <tr>
-      <td>Validaidation</td>
-      <td>		<xsl:apply-templates /></td>  
-    </tr>  
-
-   
-
-        </td></tr></table>
-    
-  </xsl:template>
+	<tr>
+		<table>
+			<tr>
+				<td>
+			    <xsl:choose>
+			      <xsl:when test="@result='PASSED'">
+					<tr>
+						<td><xsl:value-of select="$nameFile" /></td> 
+						<td>:white_check_mark:<xsl:value-of select="@result" /></td>
+						<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
+						<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
+						<td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
+						<td><xsl:value-of select="$elapsedTime"/></td>	
+						<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
+					</tr>
+			      </xsl:when>
+			      <xsl:otherwise>
+					<tr>
+						<td><xsl:value-of select="$nameFile" /></td> 
+						<td>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></td>
+						<td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
+						<td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
+						<td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
+						<td><xsl:value-of select="$elapsedTime"/></td>	
+						<td><xsl:value-of select="//gvr:counters/@numberOfConstraints"/></td>
+					</tr>
+			      </xsl:otherwise>
+			    </xsl:choose>  
+			</tr>
+			<tr>
+				<td>Validaidation</td>
+				<td><xsl:apply-templates /></td>  
+			</tr>  
+	</table>
+	</tr>
+</xsl:template>
 
   <xsl:template match="gvr:subReport">
   <details>
