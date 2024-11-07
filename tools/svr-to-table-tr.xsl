@@ -45,7 +45,6 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
                     <xsl:value-of select="$nameFile" />
                   </td> 
                   <td>:heavy_exclamation_mark: 
-                    <xsl:value-of select="$nameFile" /> :
                     <xsl:value-of select="@result" />
                   </td>
                   <td>
