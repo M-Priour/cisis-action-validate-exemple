@@ -144,25 +144,25 @@ for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
                         print("Erreur à  la transformation   : " + p)        
                         print(e)
                         outputErreur += "<tr><td>" + p  + "</td><td>Erreur à la transformation  du rapport </td></tr>"   
-                        print("	 "<tr><td>" + p  + "</td><td> Erreur à la transformation  du rapport </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
+                        print("	 <tr><td>" + p  + "</td><td> Erreur à la transformation  du rapport </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
                         
                 except  Exception as e: 
                     print("Erreur à  la recuperation du rapport de  validation  : " + p)    
                     print(e)
                     outputErreur += "<tr><td>" + p  + "</td><td> Erreur à la récuperartion du rapport </td></tr>"     
-                    print("	 "<tr><td>" + p  + "</td><td> Erreur à la récuperation du rapport </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
+                    print("	 <tr><td>" + p  + "</td><td> Erreur à la récuperation du rapport </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
                     
             except Exception as e: 
                 print("Erreur à la validation  : " + p)
                 print(e)
                 outputErreur += "<tr><td>" + p  + "</td><td> Erreur à la validation </td></tr>"
-                print("	 "<tr><td>" + p  + "</td><td> Erreur à la validation </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
+                print("	 <tr><td>" + p  + "</td><td> Erreur à la validation </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
 
 
         else :
             print("Fichier sans validateur  : " + p)  
             outputSansvalidateur += "<tr><td>" + p  + "</td><td>Pas de validateur trouvé </td></tr>"
-            print("	 "<tr><td>" + p  + "</td><td> Pas de validateur trouvé  </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
+            print("	 <tr><td>" + p  + "</td><td> Pas de validateur trouvé  </td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>" ,file=open(file_output, "a"))    
         
 
             
