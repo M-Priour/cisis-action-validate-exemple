@@ -75,7 +75,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
         <tr>
           <td>Validation
           </td>
-          <td>
+          <td colspan="6">
             <xsl:apply-templates />
           </td>  
         </tr>  
