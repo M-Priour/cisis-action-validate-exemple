@@ -74,7 +74,7 @@ print("output : " +     file_output)
 outputErreur = ""
 outputSansvalidateur = ""
 
- print("<table><tr> <td>Fichier</td> <td>Etat</td> <td>validateur</td> <td>Nombre d'erreur</td> <td>Nombre de warning</td> <td>Temps</td> <td>Nombre de contrainte</td> </tr>" ,file=open(file_output, "a"))    
+print("<table><tr> <td>Fichier</td> <td>Etat</td> <td>validateur</td> <td>Nombre d'erreur</td> <td>Nombre de warning</td> <td>Temps</td> <td>Nombre de contrainte</td> </tr>" ,file=open(file_output, "a"))    
 
 for p in glob.iglob(dir_path_exemple+'/**/*.*', recursive=True):
     if(os.path.isfile(p)):
