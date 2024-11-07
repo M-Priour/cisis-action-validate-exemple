@@ -12,6 +12,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
   <xsl:template match="gvr:validationReport ">
     
     <tr>
+      <td>
       <table>
         <tr>
           <td>
@@ -79,6 +80,8 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
             <xsl:apply-templates />
           </td>  
         </tr>  
+
+      </td>
       </table>
     </tr>
   </xsl:template>
