@@ -11,11 +11,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
   
   <xsl:template match="gvr:validationReport ">
     
-    <tr>
-      <td>
-      <table>
-        <tr>
-          <td>
+
             <xsl:choose>
               <xsl:when test="@result='PASSED'">
                 <tr>
@@ -71,8 +67,7 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
                 </tr>
               </xsl:otherwise>
             </xsl:choose>  
-          </td>
-        </tr>
+
         <tr>
           <td>Validation
           </td>
@@ -81,9 +76,6 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
           </td>  
         </tr>  
 
-      </td>
-      </table>
-    </tr>
   </xsl:template>
   
   <xsl:template match="gvr:subReport">
