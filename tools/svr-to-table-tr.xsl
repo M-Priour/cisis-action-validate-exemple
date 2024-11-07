@@ -31,7 +31,7 @@
       <xsl:otherwise>
         <tr>
           <td><xsl:value-of select="$nameFile" /></td> 
-          <td>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /</td>
+          <td>:heavy_exclamation_mark: <xsl:value-of select="$nameFile" /> :<xsl:value-of select="@result" /></td>
   			  <td><xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validationServiceName" />-<xsl:value-of select="/gvr:validationReport/gvr:validationOverview/gvr:validatorID" /></td>
           <td><xsl:value-of select="//gvr:counters/@numberOfErrors" /></td>
   			  <td><xsl:value-of select="//gvr:counters/@numberOfWarnings" /></td>
