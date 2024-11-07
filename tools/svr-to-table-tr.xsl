@@ -73,17 +73,19 @@ xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
   </xsl:template>
   
   <xsl:template match="gvr:subReport">
-    <details>
-      <summary>  
-        <h4>
-          Details   (
-          <xsl:value-of select="@subReportResult" />)   
-        </h4>
-      </summary>		  
-      <table class="table table-striped table-hover">
-        <xsl:apply-templates />
-      </table>
-    </details>	  
+    <xsl:if test="count(./gvr:constraint) &gt; 0">
+      <details>
+        <summary>  
+          <h4>
+            Details   (
+            <xsl:value-of select="@subReportResult" />)   
+          </h4>
+        </summary>		  
+        <table class="table table-striped table-hover">
+          <xsl:apply-templates />
+        </table>
+      </details>	  
+    </xsl:if>    
   </xsl:template>
   
   
